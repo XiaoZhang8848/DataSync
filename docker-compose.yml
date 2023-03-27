@@ -17,12 +17,13 @@ services:
     ports:
       - "11111:11111"
     environment:
-      - canal.instance.master.address=host.docker.internal:3306
-      - canal.instance.mysql.slaveId=2
+      - canal.instance.master.address=192.168.31.43:3306
+      - canal.instance.mysql.slaveId=2 # canal的slaveId，需要唯一 不要和mysql的slaveId重复
       - canal.instance.dbUsername=root
       - canal.instance.dbPassword=1q2w3E*
     depends_on:
       - mysql
+      - rabbitmq
 
   rabbitmq:
     image: rabbitmq:management

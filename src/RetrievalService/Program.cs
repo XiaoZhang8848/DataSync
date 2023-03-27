@@ -1,7 +1,18 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using RetrievalService.Data;
 
-builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();
+var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
+var services = builder.Services;
+
+services.AddControllers();
+services.AddSwaggerGen();
+services.AddDbContext<AppDbContext>(opt =>
+    opt.UseMySql(config.GetConnectionString("MySql"), MySqlServerVersion.LatestSupportedServerVersion)
+        .LogTo(Console.WriteLine, LogLevel.Information)
+        .EnableSensitiveDataLogging()
+        .EnableDetailedErrors()
+);
 
 var app = builder.Build();
 

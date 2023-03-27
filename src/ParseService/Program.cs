@@ -1,7 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
+var services = builder.Services;
 
-builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();
+services.AddControllers();
+services.AddSwaggerGen();
 
 var app = builder.Build();
 
