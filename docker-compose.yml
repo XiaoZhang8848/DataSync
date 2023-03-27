@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1q2w3E*
+      - TZ=Asia/Shanghai
+    command: --server-id=1 --log-bin=mysql-bin --binlog-format=ROW
+
+  canal:
+    image: canal/canal-server
+    container_name: canal
+    ports:
+      - "11111:11111"
+    environment:
+      - canal.instance.master.address=host.docker.internal:3306
+      - canal.instance.mysql.slaveId=2
+      - canal.instance.dbUsername=root
+      - canal.instance.dbPassword=1q2w3E*
+    depends_on:
+      - mysql
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
