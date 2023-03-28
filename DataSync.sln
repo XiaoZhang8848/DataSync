@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{27888404-3946-450C-8CAC-54B57E15B98B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetrievalService", "src\RetrievalService\RetrievalService.csproj", "{27229C4C-2F81-440C-931B-75571396E665}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseService", "src\ParseService\ParseService.csproj", "{3AA259AF-61F1-4D6A-B13A-ACDFE2CF9063}"
 EndProject
 Global
@@ -18,17 +16,12 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27229C4C-2F81-440C-931B-75571396E665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27229C4C-2F81-440C-931B-75571396E665}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27229C4C-2F81-440C-931B-75571396E665}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27229C4C-2F81-440C-931B-75571396E665}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3AA259AF-61F1-4D6A-B13A-ACDFE2CF9063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3AA259AF-61F1-4D6A-B13A-ACDFE2CF9063}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AA259AF-61F1-4D6A-B13A-ACDFE2CF9063}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AA259AF-61F1-4D6A-B13A-ACDFE2CF9063}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{27229C4C-2F81-440C-931B-75571396E665} = {27888404-3946-450C-8CAC-54B57E15B98B}
 		{3AA259AF-61F1-4D6A-B13A-ACDFE2CF9063} = {27888404-3946-450C-8CAC-54B57E15B98B}
 	EndGlobalSection
 EndGlobal
