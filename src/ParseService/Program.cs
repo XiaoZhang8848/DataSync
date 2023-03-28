@@ -15,6 +15,9 @@ var connectionFactory = new ConnectionFactory();
 using var connection = connectionFactory.CreateConnection(new[] { "192.168.31.43" });
 using var channel = connection.CreateModel();
 
+const string EXCHANGE_NAME = "canal";
+const string QUEUE_NAME = "canal";
+
 DeclareExchange(channel);
 DeclareQueue(channel);
 QueueBind(channel);
@@ -34,15 +37,15 @@ Console.ReadLine();
 
 void DeclareExchange(IModel channel)
 {
-    channel.ExchangeDeclare("canal", ExchangeType.Fanout, true, false, null);
+    channel.ExchangeDeclare(EXCHANGE_NAME, ExchangeType.Fanout, true, false, null);
 }
 
 void DeclareQueue(IModel channel)
 {
-    channel.QueueDeclare("canal", true, false, false, null);
+    channel.QueueDeclare(QUEUE_NAME, true, false, false, null);
 }
 
 void QueueBind(IModel channel)
 {
-    channel.QueueBind("canal", "canal", "");
+    channel.QueueBind(QUEUE_NAME, EXCHANGE_NAME, "");
 }
