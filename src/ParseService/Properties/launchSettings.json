@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "ParseService": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:8000"
+      }
+    }
+  }
+}

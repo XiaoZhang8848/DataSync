@@ -11,6 +11,12 @@ public record CanalModel<T> where T : class, new()
 
     public void ParseData()
     {
+        // 对表、库进行操作时 类型可能为QUERY 不处理
+        if (Type != "INSERT" || Type != "UPDATE" || Type != "DELETE")
+        {
+            return;
+        }
+        
         var typeCodes = GetTypeCode();
         var t = new T();
         var properties = t.GetType().GetProperties();
