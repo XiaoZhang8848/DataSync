@@ -6,10 +6,10 @@
 
    ```properties
    canal.serverMode = rabbitMQ
-   rabbitmq.host = 127.0.0.1
+   rabbitmq.host = 192.168.31.43
    rabbitmq.virtual.host = / 
-   rabbitmq.exchange = xxx
-   rabbitmq.username = xxx
-   rabbitmq.password = xxx
+   rabbitmq.exchange = canal
+   rabbitmq.username = guest
+   rabbitmq.password = guest
    rabbitmq.deliveryMode = fanout
    ```
