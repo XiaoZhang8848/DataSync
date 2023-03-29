@@ -17,6 +17,11 @@ public static class WebApplicationExtension
         var connectionFactory = new ConnectionFactory();
         var connection = connectionFactory.CreateConnection(new[] { config.GetConnectionString("RabbitMQ")});
         
+        var model = connection.CreateModel();
+        model.ExchangeDeclare("canal", ExchangeType.Fanout, true, false);
+        model.QueueDeclare("canal", true, false, false);
+        model.QueueBind("canal", "canal", string.Empty);
+        
         foreach (var controller in Assembly.GetExecutingAssembly().GetExportedTypes().Where(x => x.IsAssignableTo(typeof(ControllerBase))))
         {
             var type = app.Services.GetRequiredService(controller);
